@@ -1,0 +1,100 @@
+/* FOOTER */
+
+/* GENERAL */
+
+    footer {
+        padding: 10px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    footer h4 {
+        font-size: 19px;
+        margin-bottom: 10px;
+    }
+
+    footer ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    footer a {
+        color: black;
+        text-decoration: none;
+        font-size: 22px;
+        background-color: white;
+    }
+
+    footer img {
+        width: 15%;
+    }
+
+/* GENERAL */
+
+.logo {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.redes {
+    width: 20%;
+    height: 125px;
+    border-right: 1px solid black;
+}
+
+.payment-methods {
+    width: 20%;
+    height: 125px;
+    border-right: 1px solid black;
+}
+
+.shipment {
+    width: 20%;
+    height: 125px;
+    border-right: 1px solid black;
+}
+
+.contacto {
+    width: 20%;
+    height: 125px;
+}
+
+.copyright {
+    margin-top: 30px;
+    width: 100%;
+}
+
+/* MOBILE */
+
+    @media (max-width: 1023px){
+        .redes {
+            width: 100%;
+            border-bottom: 1px solid black;
+            border-right: none;
+            margin-top: 15px;
+        }
+
+        .payment-methods {
+            width: 100%;
+            border-bottom: 1px solid black;
+            border-right: none;
+            margin-top: 15px;
+        }
+
+        .shipment {
+            width: 100%;
+            border-bottom: 1px solid black;
+            border-right: none;
+            margin-top: 15px;
+        }
+
+        .contacto {
+            width: 100%;
+            border-right: none;
+            margin-top: 15px;
+        }
+    }
+
+/* MOBILE */

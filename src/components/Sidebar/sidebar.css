@@ -1,0 +1,47 @@
+.sidebar {
+    height: 100%;
+    width: 18%;
+    background-color: black;
+    color: white;
+    border: 1px solid red;
+}
+
+.sidebar ul {
+    List-style-type: none;
+    font-size: 22px;
+}
+
+.sidebar li {
+    margin-bottom: 20px;
+}
+
+.login {
+    display: flex;
+    align-items: center;
+}
+
+img {
+    width: 75%;
+}
+
+/* MOBILE */
+
+@media (max-width: 1023px){
+    .sidebar {
+        width: 60%;
+    }
+
+    img {
+        width: 15%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px){
+    .sidebar {
+        width: 35%;
+    }
+
+    
+}
+
+/* MOBILE */
