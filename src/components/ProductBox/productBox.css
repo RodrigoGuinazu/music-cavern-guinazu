@@ -20,7 +20,19 @@ img {
 
 .product-info h2 {
     padding-top: 12px;
-    font-weight: lighter;
+    font-weight: 400;
+}
+
+.product-info-discount {
+    padding-top: 12px;
+    font-weight: 400;
+    text-decoration: line-through;
+}
+
+.new-price {
+    display: flex;
+    color: rgb(55, 177, 55);
+    font-weight: bolder;
 }
 
 .product-info h3 {

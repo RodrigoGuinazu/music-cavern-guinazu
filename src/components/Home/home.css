@@ -14,13 +14,13 @@ div.home{
 
 .carousel {
     width: 100%;
-    margin-bottom: 30px;
+    
 }
 
 .home-ventajas {
     display: flex;
     height: 50px;
-    margin-top: -3px;
+    margin-top: -5px;
     justify-content: center;
     align-items: center;
     background-color: white;
@@ -33,7 +33,7 @@ div.home{
 
 .latest {
     width: 100%;
-    margin-bottom: 30px;
+    
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -44,13 +44,13 @@ div.home{
     color: #282828;
     font-size: 35px;
     font-family: 'Zen Dots', cursive;
-    margin-top: 10px;
-    margin-bottom: 50px;
+    text-decoration: underline;
+    margin-bottom: 25px;
+    margin-top: 75px;
 }
 
 .categories{
     width: 100%;
-    margin-bottom: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,7 +61,6 @@ div.home{
     width: 10%;
     min-width: 200px;
     min-height: 200px;
-    margin-bottom: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,6 +72,12 @@ div.home{
     border-radius: 14px;
     margin-left: 24px;
     margin-right: 24px;
+    box-shadow: 0px 2px 6px rgb(0 0 0 / 30%);
+}
+
+.category-card:hover {
+    box-shadow: 0px 2px 6px rgb(0 0 0 / 100%);
+    cursor: pointer;
 }
 
 .category-card img{
@@ -89,12 +94,13 @@ div.home{
 
 .brands h2 {
     width: 100%;
-    margin-top: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
+    margin-top: 75px;
     width: 100%;
     color: #282828;
     font-size: 35px;
     font-family: 'Zen Dots', cursive;
+    text-decoration: underline;
 }
 
 .brands-container{
@@ -106,21 +112,26 @@ div.home{
     border-radius: 14px;
 }
 
+.brands-container:hover {
+    box-shadow: 0px 2px 6px rgb(0 0 0 / 100%);
+    cursor: pointer;
+}
+
 .brands-container img{
     width: 20%;
 }
 
 .about-us-div {
     width: 50%;
-    margin-bottom: 50px;
+    margin-bottom: 45px;
 }
 
 .about-us-div h2 {
     font-size: 40px;
-    margin-top: 30px;
-    margin-bottom: 7px;
+    margin-bottom: 25px;
+    margin-top: 75px;
     padding-top: 50px;
-    border-top: 4px solid black;
+    border-top: 4px solid #282828;
 }
 
 .about-us-div h3 {
@@ -130,11 +141,11 @@ div.home{
 
 .line {
     width: 8%;
-    border-bottom: 8px solid black;
+    border-bottom: 8px solid #282828;
 }
 
 .about-us-div p {
-    border-bottom: 10px solid black;
+    border-bottom: 10px solid #282828;
     padding-bottom: 40px;
 }
 

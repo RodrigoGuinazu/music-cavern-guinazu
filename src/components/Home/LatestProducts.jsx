@@ -53,7 +53,7 @@ export default function LatestProducts() {
     return (
         <div align="center" className="latest">
             <h2 align="left" className="latest-h2">Ultimos Ingresos</h2>
-            {products.map(product => <ProductBox key={product.id} image={product.image} price={product.price} title={product.title}/>)}
+            {products.map(product => <ProductBox key={product.id} image={product.image} price={product.price} title={product.title} discount={""} newPrice={null} />)}
         </div>
     )
 }
