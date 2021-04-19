@@ -18,7 +18,7 @@ nav {
 }
 
 .logo-search{
-    width: 50%;
+    width: 60%;
 }
 
 /* NAV */
@@ -93,3 +93,13 @@ form.search {
 }
 
 /* LOWER NAV */
+
+@media(max-width: 768px) {
+    h3 {
+        font-size: medium;
+    }
+
+    .navbar-categories {
+        display: none;
+    }
+}

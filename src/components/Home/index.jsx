@@ -2,8 +2,10 @@ import React from 'react'
 import './home.css'
 import LatestProducts from './LatestProducts'
 import Carousel from './Carousel'
-import Body from './Body'
 import Categories from './Categories'
+import Brands from './Brands'
+import AboutUs from './AboutUs'
+import Offers from './Offers'
 
 export default function Index() {
     return (
@@ -14,7 +16,9 @@ export default function Index() {
             <div className="home-padding">
             <LatestProducts />
             <Categories />
-            <Body />
+            <Brands />
+            <Offers />
+            <AboutUs />
             </div>
             
         </div>
