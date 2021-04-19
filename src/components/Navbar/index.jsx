@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './navbar.css'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import SearchIcon from '@material-ui/icons/Search';
 import MenuIcon from '@material-ui/icons/Menu';
-import Sidebar from '../Sidebar';
 
 
 export default function Index() {
@@ -24,7 +23,7 @@ export default function Index() {
                             </button>
                         </form>
                     </div>
-                    <div class="navbar-categories">
+                    <div className="navbar-categories">
                         <a href="/">Guitarras</a><span> - </span>
                         <a href="/">Bajos</a><span> - </span>
                         <a href="/">Amplificadores</a><span> - </span>

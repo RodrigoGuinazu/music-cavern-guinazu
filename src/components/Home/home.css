@@ -1,24 +1,173 @@
 div.home{
-    padding: 10px;
     background-color: #ededed;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
+.home-padding {
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 .carousel {
     width: 100%;
-    border: 2px solid purple;
     margin-bottom: 30px;
+}
+
+.home-ventajas {
+    display: flex;
+    height: 50px;
+    margin-top: -3px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.home-ventajas span {
+    margin-right: 50px;
+    margin-left: 15px;
 }
 
 .latest {
     width: 100%;
-    border: 2px solid green;
     margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.placeholder {
+.latest-h2{
     width: 100%;
-    border: 2px solid red;
+    color: #282828;
+    font-size: 35px;
+    font-family: 'Zen Dots', cursive;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.categories{
+    width: 100%;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.category-div {
+    width: 10%;
+    min-width: 200px;
+    min-height: 200px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.category-card{
+    background-color: white;
+    border-radius: 14px;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+.category-card img{
+    width: 100%;
+    border-radius: 14px;
+}
+
+.brands {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.brands h2 {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    width: 100%;
+    color: #282828;
+    font-size: 35px;
+    font-family: 'Zen Dots', cursive;
+}
+
+.brands-container{
+    background-color: white;
+    margin: 12px;
+    width: 40%;
+    height: auto;
+    box-shadow: 0px 2px 6px rgb(0 0 0 / 20%);
+    border-radius: 14px;
+}
+
+.brands-container img{
+    width: 20%;
+}
+
+.about-us-div {
+    width: 50%;
+    margin-bottom: 50px;
+}
+
+.about-us-div h2 {
+    font-size: 40px;
+    margin-top: 30px;
+    margin-bottom: 7px;
+    padding-top: 50px;
+    border-top: 4px solid black;
+}
+
+.about-us-div h3 {
+    padding-bottom: 50px;
+    font-weight: 400;
+}
+
+.line {
+    width: 8%;
+    border-bottom: 8px solid black;
+}
+
+.about-us-div p {
+    border-bottom: 10px solid black;
+    padding-bottom: 40px;
+}
+
+@media(max-width: 767px){
+    .home-ventajas {
+        display: none;
+    }
+
+    .brands-container{
+        background-color: white;
+        margin: 12px;
+        width: 70%;
+        height: auto;
+        box-shadow: 0px 2px 6px rgb(0 0 0 / 20%);
+        border-radius: 14px;
+    }
+    
+    .brands-container img{
+        width: 40%;
+    }
+}
+
+@media(min-width: 768px) and (max-width: 1440px){
+    .brands-container{
+        background-color: white;
+        margin: 12px;
+        width: 30%;
+        height: auto;
+        box-shadow: 0px 2px 6px rgb(0 0 0 / 20%);
+        border-radius: 14px;
+    }
+    
+    .brands-container img{
+        width: 40%;
+    }
 }
