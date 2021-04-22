@@ -13,6 +13,7 @@ export default function Offers() {
                     title: "Guitarra Gibson Les Paul 60's",
                     price: 350000,
                     discount: 300000,
+                    stock: 2,
                     image: "/images/products/preview_1.jpg"
                 },
                 {
@@ -20,6 +21,7 @@ export default function Offers() {
                     title: "Bajo Squier Classic Vibe 70's",
                     price: 85000,
                     discount: 78000,
+                    stock: 3,
                     image: "/images/products/bajo_squier.jpg"
                 },
                 {
@@ -27,6 +29,7 @@ export default function Offers() {
                     title: "Amplificador Fender Champion 100",
                     price: 70000,
                     discount: 62000,
+                    stock: 0,
                     image: "/images/products/ampli_fender.jpg"
                 },
                 {
@@ -34,6 +37,7 @@ export default function Offers() {
                     title: "Interfaz de Audio Focusrite 2i2",
                     price: 25000,
                     discount: 23000,
+                    stock: 11,
                     image: "/images/products/focusrite.png"
                 },
             ]
@@ -57,7 +61,7 @@ export default function Offers() {
     return (
         <div align="center" className="latest">
             <h2 align="left" className="latest-h2">Hot Sale</h2>
-            {products.map(product => <ProductBox key={product.id} image={product.image} price={product.price} title={product.title} discount={"product-info-discount"} newPrice={'$' + product.discount}/>)}
+            {products.map(product => <ProductBox key={product.id} image={product.image} price={product.price} title={product.title} discount={"product-info-discount"} newPrice={'$' + product.discount} stock={product.stock}/>)}
         </div>
     )
 }
