@@ -1,0 +1,61 @@
+.stock {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.stock button{
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    border: 1px black solid;
+    border-radius: 4px;
+    width: 15%;
+    cursor: pointer;
+}
+
+.stock button:hover {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border: 1px black solid;
+}
+
+.stock button:disabled {
+    background-color: #ededed;
+    color: gray;
+    border: 1px gray solid;
+}
+
+.stock div {
+    width: 33%;
+}
+
+.add-to-cart {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    border: 1px black solid;
+    border-radius: 4px;
+    height: 30px;
+    width: 70%;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.add-to-cart:hover {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border: 1px black solid;
+}
+
+.add-to-cart:disabled {
+    background-color: #ededed;
+    color: gray;
+    border: 1px gray solid;
+}
