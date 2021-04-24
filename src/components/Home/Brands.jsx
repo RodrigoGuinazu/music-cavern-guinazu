@@ -15,6 +15,7 @@ export default function Brands() {
             <BrandsContainer image="https://bairesrocks.vteximg.com.br/arquivos/ids/168440/Logos-67.png?v=637292210795500000"/>
             <BrandsContainer image="https://bairesrocks.vteximg.com.br/arquivos/ids/168449/Logos-77.png?v=637292215295500000"/>
             <BrandsContainer image="https://bairesrocks.vteximg.com.br/arquivos/ids/168445/Logos-73.png?v=637292212608700000"/>
+            <BrandsContainer image="https://cdn.shopify.com/s/files/1/0797/1743/articles/BROWSE_PHONE_WALLET_CASES_56_1024x1024.jpg?v=1600985238"/>
         </div>
     )
 }

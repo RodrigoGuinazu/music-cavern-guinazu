@@ -25,7 +25,7 @@ export default function Index({image, price, title, discount, newPrice, stock}) 
                 <h2 className={discount} align="left">${price}</h2><span><h3 className="new-price" >{newPrice}</h3></span>
                 <br/>
                 <h3 align="left">{title}</h3>
-                <StockCount stock={stock} unidades={unidades} addStock={addStock}/>
+                <StockCount stock={stock} unidades={unidades} addStock={addStock} clase={"stock"}/>
             </div>                
         </article>
     )

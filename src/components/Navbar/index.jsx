@@ -3,6 +3,7 @@ import './navbar.css'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import SearchIcon from '@material-ui/icons/Search';
 import MenuIcon from '@material-ui/icons/Menu';
+import { Link } from "react-router-dom";
 
 
 export default function Index() {
@@ -13,7 +14,7 @@ export default function Index() {
                 <MenuIcon style={{fontSize: '50px'}}/>
                 <div className="logo-search">
                     <div className="logo-name">
-                        <h3 align="center" style={{fontFamily: 'Frijole'}}>The Music Cavern</h3>
+                        <Link style={{color: 'white', textDecoration: 'none'}} to={'/'}><h3 align="center" style={{fontFamily: 'Frijole'}}>The Music Cavern</h3></Link>
                     </div>
                     <div className="search">
                         <form className="search" action="" method="GET">
@@ -31,7 +32,7 @@ export default function Index() {
                         <a href="/">Accesorios</a>
                     </div>
                 </div>
-                <ShoppingCartIcon style={{fontSize: '50px'}}/>
+                <Link style={{color: 'white', textDecoration: 'none'}} to={'/cart'}><ShoppingCartIcon style={{fontSize: '50px'}}/></Link>
             </div>
         </nav>
     )

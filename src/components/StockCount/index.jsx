@@ -1,10 +1,10 @@
 import React from 'react'
 import './stockCount.css'
 
-export default function index({ stock, unidades, addStock }) {
+export default function index({ stock, unidades, addStock, clase}) {
     return (
         <>
-            <div className="stock">
+            <div className={clase}>
                 <button disabled={(stock === 0) || unidades === 1} onClick={ () => addStock(-1)}>-</button>
                 <div>{unidades}</div>
                 <button disabled={stock === 0 || unidades === stock} onClick={ () => addStock(+1)}>+</button>
