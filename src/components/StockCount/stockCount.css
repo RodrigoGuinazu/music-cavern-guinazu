@@ -94,3 +94,39 @@
     color: gray;
     border: 1px gray solid;
 }
+
+.stock-cart {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.stock-cart button{
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    border: 1px black solid;
+    border-radius: 4px;
+    width: 20%;
+    cursor: pointer;
+}
+
+.stock-cart button:hover {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border: 1px black solid;
+}
+
+.stock-cart button:disabled {
+    background-color: #ededed;
+    color: gray;
+    border: 1px gray solid;
+}
+
+.stock-counter-cart .complete-counter .add-to-cart{
+    display: none;
+}
