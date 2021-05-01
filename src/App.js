@@ -4,7 +4,9 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import Cart from './components/Cart';
 import Detail from './components/Detail';
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import Categories from './components/Categories';
+import Brands from './components/Brands';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -14,8 +16,14 @@ function App() {
         <Switch>
           <Route path='/cart'>
             <Cart />
-          </Route> 
-          <Route path='/detail'>
+          </Route>
+          <Route path='/category/:name'>
+            <Categories />
+          </Route>
+          <Route path='/brands/:name'>
+            <Brands />
+          </Route>
+          <Route path='/product/:id'>
             <Detail />
           </Route> 
           <Route exact path='/'>
