@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import './productBox.css'
 import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 import StockCount from '../StockCount'
+import { Link } from 'react-router-dom';
 
-export default function Index({image, price, title, discount, newPrice, stock}) {
+export default function Index({image, price, title, discount, newPrice, stock, id}) {
 
     const [unidades, setUnidades] = useState(1);
 
@@ -17,9 +18,9 @@ export default function Index({image, price, title, discount, newPrice, stock}) 
 
     return (
         <article className="product-box">
-            <a href="/">
+            <Link to={`/product/${id}`} >
                 <img src={image} alt="producto" />
-            </a>
+            </Link>
             <div className="product-info">
                 <LocalShippingIcon style={{position: 'absolute', right: '10px', top: '-11px', color: 'green'}}/>
                 <h2 className={discount} align="left">${price}</h2><span><h3 className="new-price" >{newPrice}</h3></span>

@@ -25,11 +25,10 @@ export default function Index() {
                         </form>
                     </div>
                     <div className="navbar-categories">
-                        <a href="/">Guitarras</a><span> - </span>
-                        <a href="/">Bajos</a><span> - </span>
-                        <a href="/">Amplificadores</a><span> - </span>
-                        <a href="/">Equipo de Grabacion</a><span> - </span>
-                        <a href="/">Accesorios</a>
+                        <Link to={`/category/Guitarras`}>Guitarras</Link><span> - </span>
+                        <Link to={`/category/Bajos`}>Bajos</Link><span> - </span>
+                        <Link to={`/category/Teclados`}>Teclados</Link><span> - </span>
+                        <Link to={`/category/Baterias`}>Baterias</Link>
                     </div>
                 </div>
                 <Link style={{color: 'white', textDecoration: 'none'}} to={'/cart'}><ShoppingCartIcon style={{fontSize: '50px'}}/></Link>
