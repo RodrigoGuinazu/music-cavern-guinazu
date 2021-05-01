@@ -1,0 +1,14 @@
+div.brands-page {
+    background-color: #ededed;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.brands-h2 {
+    width: 100%;
+    color: #282828;
+    font-size: 35px;
+    font-family: 'Zen Dots', cursive;
+    text-decoration: underline;
+    margin-bottom: 25px;
+}
