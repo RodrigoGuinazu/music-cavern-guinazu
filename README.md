@@ -1,6 +1,5 @@
 # The Music Cavern by Rodrigo Guinazu (React - Coder House)
 
-Reference-style: 
 ![alt text][logo]
 
 [logo]: https://github.com/RodrigoGuinazu/music-cavern-guinazu/blob/master/public/Animation.gif
