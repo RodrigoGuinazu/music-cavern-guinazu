@@ -23,7 +23,7 @@ export default function Index() {
             console.log('hubo un error');
         })
 
-    }, [name]) // TENGO QUE REFRESCAR LA PAGINA PARA QUE MUESTRE LOS PRODUCTOS FILTRADOS POR LA CATEGORIA
+    }, [name])
 
     return (
         <CategoriesContainer products={products} name={name} />

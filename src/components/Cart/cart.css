@@ -11,7 +11,6 @@
     color: #282828;
     font-size: 35px;
     font-family: 'Zen Dots', cursive;
-    text-decoration: underline;
     margin-bottom: 15px;
 }
 
@@ -118,6 +117,27 @@
     color: white;
     font-weight: bold;
     border: 2px #00964B solid;
+}
+
+.clean-cart {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border: 2px black solid;
+    border-radius: 4px;
+    height: 30px;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    height: 50px;
+}
+
+.clean-cart:hover {
+    background-color: crimson;
+    color: white;
+    font-weight: bold;
+    border: 2px crimson solid;
 }
 
 .purchase:disabled {

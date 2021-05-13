@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './productDetail.css'
 import CreditCardIcon from '@material-ui/icons/CreditCard';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
@@ -7,8 +7,17 @@ import StockCount from '../StockCount';
 import Recomended from '../Home/Recomended';
 import { Link } from 'react-router-dom'
 import Opinion from './Opinion'
+import { CartContext } from '../../context/CartContext';
 
-export default function Index({ title, price, brand, category, video, image, stock }) {
+export default function Index({ id, title, price, brand, category, video, image, stock }) {
+
+    const {inCart} = useContext(CartContext)
+
+    const [productInCart, setProductInCart] = useState(inCart(id))
+
+    useEffect(() => {
+		setProductInCart(inCart(id))
+	}, [id, inCart])
 
     const [unidades, setUnidades] = useState(1);
 
@@ -42,7 +51,7 @@ export default function Index({ title, price, brand, category, video, image, sto
                     <span className="warranty-shippment-payment"><LocalShippingIcon style={{color: 'green'}}/><h3 href="/">Envios gratis desde $5.000</h3></span>
                     <span className="warranty-shippment-payment"><VerifiedUserIcon style={{color: 'goldenrod'}}/><h3 href="/">Garantia Oficial</h3></span>
                     <span className="warranty-shippment-payment"><CreditCardIcon style={{color: '#3483fa'}}/><h3 href="/">12 Cuotas Sin Interes</h3></span>
-                    <StockCount clase={"stock-detail"} stock={stock} unidades={unidades} addStock={addStock} />
+                    { productInCart ? ( <Link to={`/cart`}><button className={"add-to-cart"}>Finalizar Compra</button></Link> ) : ( <StockCount product={{image, price, title, id, stock}} clase={"stock-detail"} stock={stock} unidades={unidades} addStock={addStock} /> ) }
                     <br/>
                     <br/>
                 </article>

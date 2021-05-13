@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './sidebar.css'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import Categories from './Categories'
+import Brands from './Brands'
 
 export default function Index() {  
+
+    const [categories, setCategories] = useState(false)
+
+    const showCategories = () => setCategories(!categories)
+
+    const [brands, setBrands] = useState(false)
+
+    const showBrands = () => setBrands(!brands)
+
     return (
         <div align='center' className="sidebar">
             <img src="images/music-cavern-logo.jpg" alt="logo"/>
@@ -11,26 +22,18 @@ export default function Index() {
                 <li className="login">
                     Log In <ExitToAppIcon style={{fontSize: '30px', marginLeft: '10px', marginTop: '3px'}} />
                 </li>
-                <li>
+                <li onClick={showCategories} style={{cursor: 'pointer'}}>
                     Categorias
                 </li>
-                    <ul>
-                        <li>
-                            Guitarras
-                        </li>
-                        <li>
-                            Bajos
-                        </li>
-                        <li>
-                            Amplificadores
-                        </li>
-                        <li>
-                            Accesorios
-                        </li>
-                        <li>
-                            Equipo de Grabacion
-                        </li>
-                    </ul>
+                    {categories && (
+                        <Categories />
+                    )}
+                <li onClick={showBrands} style={{cursor: 'pointer'}}>
+                    Marcas
+                </li>
+                    {brands && (
+                        <Brands />
+                    )}
                 <li>
                     Luthiers
                 </li>

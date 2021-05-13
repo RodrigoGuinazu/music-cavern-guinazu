@@ -13,7 +13,6 @@ export default function Offers() {
 
         showProudcts.then((resolve) => {
             let hotsale = resolve.filter(pro => pro.discount)
-            console.log(hotsale)
             setProducts(hotsale)
         }, (reject) => {
             console.log('rechazado', reject);

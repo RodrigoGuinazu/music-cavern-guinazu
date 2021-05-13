@@ -28,7 +28,7 @@ export default function Detail() {
 
     return (
         <>
-            <ProductDetail title={product.title} price={product.price} brand={product.brand} category={product.category} video={product.video} image={product.image} stock={product.stock}/>
+            <ProductDetail title={product.title} price={product.price} brand={product.brand} category={product.category} video={product.video} image={product.image} stock={product.stock} id={product.id}/>
         </>
     )
 }
