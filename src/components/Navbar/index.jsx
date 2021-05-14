@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './navbar.css'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import SearchIcon from '@material-ui/icons/Search';
@@ -13,7 +13,6 @@ export default function Index() {
     const showSidebar = () => setSidebar(!sidebar)
 
     return (
-        <>
         <nav>
             <div className="nav">
                 <MenuIcon onClick={showSidebar} style={{fontSize: '50px', cursor: 'pointer'}}/>
@@ -33,8 +32,7 @@ export default function Index() {
                 </div>
                 <Link style={{color: 'white', textDecoration: 'none'}} to={'/cart'}><ShoppingCartIcon style={{fontSize: '50px'}}/></Link>
             </div>
+            {sidebar && ( <Sidebar /> )}
         </nav>
-        {sidebar && ( <Sidebar /> )}
-        </>
     )
 }

@@ -25,7 +25,7 @@ export default function LatestProducts() {
     return (
         <div align="center" className="latest">
             <h2 align="center" className="latest-h2">Recomendaciones</h2>
-            {products.map(product => <ProductBox key={product.id} image={product.image} price={product.price} title={product.title} discount={""} newPrice={null} stock={product.stock} id={product.id}/>)}
+            {products.slice(0, 4).map(product => <ProductBox key={product.id} image={product.image} price={product.price} title={product.title} discount={""} newPrice={null} stock={product.stock} id={product.id}/>)}
         </div>
     )
 }

@@ -4,7 +4,7 @@ import { CartContext } from '../../context/CartContext';
 
 export default function ProductsInCart( {title, price, image, id, quantity} ) {
 
-    const {cart, removeItem} = useContext(CartContext)
+    const {removeItem} = useContext(CartContext)
 
         return (
             <>

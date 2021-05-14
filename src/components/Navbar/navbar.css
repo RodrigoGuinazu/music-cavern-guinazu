@@ -1,7 +1,6 @@
 nav {
     background-color: black;
     color: white;
-    padding: 10px;
 }
 
 /* NAV */
@@ -10,6 +9,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px;
 }
 
 .logo-name {
@@ -71,28 +71,6 @@ form.search {
 }
 
 /* SEARCH */
-
-
-/* LOWER NAV */
-
-.navbar-categories {
-    display: flex;
-    margin-top: 15px;
-    justify-content: center;
-}
-
-.navbar-categories a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-}
-
-.navbar-categories span {
-    margin-right: 4px;
-    margin-left: 4px;
-}
-
-/* LOWER NAV */
 
 @media(max-width: 768px) {
     h3 {

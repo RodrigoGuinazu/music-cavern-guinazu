@@ -3,6 +3,8 @@ import './sidebar.css'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Categories from './Categories'
 import Brands from './Brands'
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 
 export default function Index() {  
 
@@ -18,32 +20,30 @@ export default function Index() {
         <div align='center' className="sidebar">
             <img src="images/music-cavern-logo.jpg" alt="logo"/>
             <h3 align="center" style={{fontFamily: 'Frijole', color: 'white', marginBottom: '30px'}}>The Music Cavern</h3>
-            <ul align='left'>
-                <li className="login">
-                    Log In <ExitToAppIcon style={{fontSize: '30px', marginLeft: '10px', marginTop: '3px'}} />
-                </li>
-                <li onClick={showCategories} style={{cursor: 'pointer'}}>
-                    Categorias
-                </li>
-                    {categories && (
-                        <Categories />
-                    )}
-                <li onClick={showBrands} style={{cursor: 'pointer'}}>
-                    Marcas
-                </li>
-                    {brands && (
-                        <Brands />
-                    )}
-                <li>
-                    Luthiers
-                </li>
-                <li>
-                    Sobre Nosotros
-                </li>
-                <li>
-                    FAQs
-                </li>
-            </ul>
+            <li style={{cursor: 'pointer'}}>
+                <div style={{display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}>Log In <ExitToAppIcon style={{fontSize: '30px'}}/> </div>
+            </li>
+            <li onClick={showCategories} style={{cursor: 'pointer'}}>
+                <div style={{display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}>Categorias {!categories ? (<ArrowDropDownIcon style={{fontSize: '30px'}} />) : <ArrowDropUpIcon style={{fontSize: '30px'}} />} </div>
+            </li>
+                {categories && (
+                    <Categories />
+                )}
+            <li onClick={showBrands} style={{cursor: 'pointer'}}>
+            <div style={{display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}>Marcas {!brands ? (<ArrowDropDownIcon style={{fontSize: '30px'}} />) : <ArrowDropUpIcon style={{fontSize: '30px'}} />} </div>
+            </li>
+                {brands && (
+                    <Brands />
+                )}
+            <li style={{cursor: 'pointer'}}>
+                <div style={{display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}>Luthiers</div>
+            </li>
+            <li style={{cursor: 'pointer'}}>
+                <div style={{display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}>Sobre Nosotros</div>
+            </li>
+            <li style={{cursor: 'pointer'}}>
+                <div style={{display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}>FAQs</div>
+            </li>
         </div>
     )
 }
