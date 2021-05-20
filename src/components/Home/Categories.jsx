@@ -1,18 +1,39 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import CategoryCard from './CategoryCard'
+import { getFirestore } from '../../firebase';
+import Spinner from '../../Spinner'
 
 export default function Categories() {
+
+    const [loading, setLoading] = useState(false)
+    const [categories, setCategories] = useState([])
+
+    useEffect(()=>{
+        setLoading(true)
+        const db = getFirestore();
+        const categoriesCollection = db.collection('categories'); // TODOS LOS PRODUCTOS
+
+        // TODOS LOS PRODUCTOS
+        categoriesCollection.get()
+        .then((querySnapshot) => {
+            const array = querySnapshot.docs.map(doc => { // EL DOC CONTIENE EL id, metadata, y mas cosas, lo que nos importa es el ID y la data
+                return{
+                    id: doc.id, // AGREGO EL ID EN EL OBJETO DEL PRODUCTO
+                    ...doc.data() // IMPORTANTE EL .data() (FUNCIONARIA COMO EL .JSON)
+                }
+            })
+            setCategories(array)
+        })
+        .catch((error) => console.log(error))
+        .finally(() => setLoading(false))
+
+    }, [])
+
     return (
         <div align="center" className="categories">
             <h2 align="left" className="latest-h2">Categorias</h2>
-            <CategoryCard category="Guitarras" image="https://d1aeri3ty3izns.cloudfront.net/media/23/235459/600/preview_4.jpg"/>
-            <CategoryCard category="Bajos" image="https://d1aeri3ty3izns.cloudfront.net/media/33/330997/600/preview_2.jpg"/>
-            <CategoryCard category="Amplificadores" image="https://cdn.shopify.com/s/files/1/0486/1870/0962/products/mg151.jpg?v=1614086049"/>
-            <CategoryCard category="Pedales" image="https://i.pinimg.com/736x/3e/61/dc/3e61dc144d024d301791c3b8750472f6.jpg"/>
-            <CategoryCard category="Grabacion" image="https://centralaudiosac.com/wp-content/uploads/2019/08/scarlett_2i2-1-600x600.png"/>
-            <CategoryCard category="Teclados" image="https://www-vintageking.com.imgeng.in/media/catalog/product/cache/c8660c81d7196df55c33284290821786/y/a/yamaha-dgx-660-black-angle.jpg"/>
-            <CategoryCard category="Baterias" image="https://mg.co.id/wp-content/uploads/2020/03/447000602_-_pearl-600x600.jpg"/>
-            <CategoryCard category="Accesorios" image="https://aymaraperu.com.pe/wp-content/uploads/2020/07/57959-16921-ernie-ball-p02627-600x600.jpg"/>
+            { loading && ( <Spinner /> ) }
+            {categories.map(category => <CategoryCard key={category.id} name={category.name} image={category.image} id={category.id} />)}
         </div>
     )
 }

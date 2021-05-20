@@ -96,12 +96,20 @@ iframe{
 }
 
 @media (max-width: 767px){
-    .product-detail img {
-        width: 90%;
-    }
-
     .product-detail {
         padding: 10px;
+    }
+
+    .extra-images{
+        display: none;
+    }
+
+    .product-detail img {
+        width: 100%;
+    }
+
+    .product-detail article {
+        width: auto
     }
 
     .description p {

@@ -1,4 +1,33 @@
+.nav-no-menu .sidebar{
+    margin-left: -100%;
+    transition: 850ms;
+}
+
+.no-brands-ul {
+    margin-left: -100%;
+    position: fixed;
+    transition: 850ms;
+}
+
+.brands-ul {
+    margin-left: 0%;
+    transition: 350ms;
+}
+
+.no-categories-ul {
+    margin-left: -100%;
+    position: fixed;
+    transition: 850ms;
+}
+
+.categories-ul {
+    margin-left: 0%;
+    transition: 350ms;
+}
+
 .sidebar {
+    margin-left: 0%;
+    transition: 350ms;
     height: 100vh;
     position: fixed;
     z-index: 1;
@@ -20,19 +49,11 @@
     background-color: #333;
 }
 
-img {
-    width: 75%;
-}
-
 /* MOBILE */
 
 @media (max-width: 1023px){
     .sidebar {
-        width: 60%;
-    }
-
-    img {
-        width: 15%;
+        width: 55%;
     }
 }
 

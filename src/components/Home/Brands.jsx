@@ -1,21 +1,39 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import BrandsContainer from './BrandsContainer'
+import { getFirestore } from '../../firebase';
+import Spinner from '../../Spinner'
 
 export default function Brands() {
+
+    const [loading, setLoading] = useState(false)
+    const [brands, setBrands] = useState([])
+
+    useEffect(()=>{
+        setLoading(true)
+        const db = getFirestore();
+        const brandsCollection = db.collection('brands'); // TODOS LOS PRODUCTOS
+
+        // TODOS LOS PRODUCTOS
+        brandsCollection.get()
+        .then((querySnapshot) => {
+            const array = querySnapshot.docs.map(doc => { // EL DOC CONTIENE EL id, metadata, y mas cosas, lo que nos importa es el ID y la data
+                return{
+                    id: doc.id, // AGREGO EL ID EN EL OBJETO DEL PRODUCTO
+                    ...doc.data() // IMPORTANTE EL .data() (FUNCIONARIA COMO EL .JSON)
+                }
+            })
+            setBrands(array)
+        })
+        .catch((error) => console.log(error))
+        .finally(() => setLoading(false))
+
+    }, [])
+
     return (
         <div className="brands">
             <h2 align="left">Nuestras Marcas</h2>
-            <BrandsContainer name="Jackson" image="https://bairesrocks.vteximg.com.br/arquivos/ids/168455/Logos-84.png?v=637292217478130000"/>
-            <BrandsContainer name="Yamaha" image="https://bairesrocks.vteximg.com.br/arquivos/ids/168381/Logos-07.png?v=637292145882070000"/>
-            <BrandsContainer name="Fender" image="https://bairesrocks.vteximg.com.br/arquivos/ids/168382/Logos-08.png?v=637292146670630000"/>
-            <BrandsContainer name="Behringer" image="https://bairesrocks.vteximg.com.br/arquivos/ids/168409/Logos-35.png?v=637292169114030000"/>
-            <BrandsContainer name="Blackstar" image="https://bairesrocks.vteximg.com.br/arquivos/ids/168413/Logos-39.png?v=637292174253600000"/>
-            <BrandsContainer name="Squier" image="https://bairesrocks.vteximg.com.br/arquivos/ids/168429/Logos-56.png?v=637292206712570000"/>
-            <BrandsContainer name="Zildijan" image="https://bairesrocks.vteximg.com.br/arquivos/ids/168424/Logos-51.png?v=637292192992100000"/>
-            <BrandsContainer name="Stagg" image="https://bairesrocks.vteximg.com.br/arquivos/ids/168440/Logos-67.png?v=637292210795500000"/>
-            <BrandsContainer name="Marshall" image="https://bairesrocks.vteximg.com.br/arquivos/ids/168449/Logos-77.png?v=637292215295500000"/>
-            <BrandsContainer name="Remo" image="https://bairesrocks.vteximg.com.br/arquivos/ids/168445/Logos-73.png?v=637292212608700000"/>
-            <BrandsContainer name="Gibson" image="https://cdn.shopify.com/s/files/1/0797/1743/articles/BROWSE_PHONE_WALLET_CASES_56_1024x1024.jpg?v=1600985238"/>
+            { loading && ( <Spinner /> ) }
+            {brands.map(brand => <BrandsContainer key={brand.id} name={brand.name} image={brand.image} id={brand.id} />)}
         </div>
     )
 }

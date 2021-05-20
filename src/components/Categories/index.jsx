@@ -1,31 +1,42 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router';
 import CategoriesContainer from './CategoriesContainer';
-import productsList from '../../data/products'
+import { getFirestore } from '../../firebase';
+import Spinner from '../../Spinner'
 
 export default function Index() {
 
+    const [loading, setLoading] = useState(false)
     const [products, setProducts] = useState([])
     const { name } = useParams()
 
     useEffect(()=>{
-        const showProudcts = new Promise((resolve, reject) => {
-            resolve(productsList)
-        })
+        setLoading(true)
+        const db = getFirestore();
+        const itemCollection = db.collection('products'); // TODOS LOS PRODUCTOS
 
-        showProudcts.then((resolve) => {
-            let filtrados = resolve.filter(pro => pro.category === name)
+        itemCollection.get()
+        .then((querySnapshot) => {
+            const array = querySnapshot.docs.map(doc => {
+                return{
+                    id: doc.id, // AGREGO EL ID EN EL OBJETO DEL PRODUCTO
+                    ...doc.data(), // IMPORTANTE EL .data() (FUNCIONARIA COMO EL .JSON)
+                    brand: doc.data()['brand-id'].id,
+                    category: doc.data()['category-id'].id,
+                }
+            })
+            
+            const filtrados = array.filter(product => product.category === name)
             setProducts(filtrados)
-        }, (reject) => {
-            console.log('rechazado', reject);
         })
-        .catch((error)=>{
-            console.log('hubo un error');
-        })
+        .catch((error) => console.log(error))
+        .finally(() => setLoading(false))
 
     }, [name])
 
     return (
-        <CategoriesContainer products={products} name={name} />
+        <>
+            { loading ? ( <Spinner /> ) : (<CategoriesContainer products={products} name={name} />) }
+        </>
     )
 }

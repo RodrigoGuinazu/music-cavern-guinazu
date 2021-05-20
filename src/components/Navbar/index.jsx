@@ -1,19 +1,18 @@
 import React, { useState } from 'react'
-import './navbar.css'
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import './navbar.css';
 import SearchIcon from '@material-ui/icons/Search';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from "react-router-dom";
-import Sidebar from '../Sidebar/index'
+import Sidebar from '../Sidebar/index';
+import CartIcon from './CartIcon'
 
 export default function Index() {
 
     const [sidebar, setSidebar] = useState(false)
-
     const showSidebar = () => setSidebar(!sidebar)
 
     return (
-        <nav>
+        <nav className={sidebar ? 'nav-menu' : 'nav-no-menu'}>
             <div className="nav">
                 <MenuIcon onClick={showSidebar} style={{fontSize: '50px', cursor: 'pointer'}}/>
                 <div className="logo-search">
@@ -30,9 +29,9 @@ export default function Index() {
                     </div>
                     <br />
                 </div>
-                <Link style={{color: 'white', textDecoration: 'none'}} to={'/cart'}><ShoppingCartIcon style={{fontSize: '50px'}}/></Link>
+                <CartIcon />
             </div>
-            {sidebar && ( <Sidebar /> )}
+            <Sidebar />
         </nav>
     )
 }

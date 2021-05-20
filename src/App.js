@@ -7,13 +7,15 @@ import Detail from './components/Detail';
 import Categories from './components/Categories';
 import Brands from './components/Brands';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { CartProvider } from './context/CartContext' 
+import { CartProvider } from './context/CartContext'
+import ScrollToTop from './ScrollToTop'
 
 function App() {
   return (
     <>
       <CartProvider>
         <BrowserRouter>
+          <ScrollToTop />
           <Navbar />
           <Switch>
             <Route path='/cart'>
