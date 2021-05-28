@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { CartContext } from '../../context/CartContext';
+import { Link } from 'react-router-dom';
 
 export default function ProductsInCart( {title, price, image, id, quantity} ) {
 
@@ -9,7 +10,7 @@ export default function ProductsInCart( {title, price, image, id, quantity} ) {
         return (
             <>
                 <div className="product-info-cart" key={id}>
-                <div className="img-title-cart"><img src={image} alt=""/><a style={{ textDecoration: 'none' }} href={`/product/${id}`}>{title}</a></div>
+                <div className="img-title-cart"><img src={image} alt=""/><Link to={`/product/${id}`}>{title}</Link></div>
                     <div className="stock-count-mobile" id="">
                         {quantity}
                     </div>

@@ -6,6 +6,7 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import PhoneIcon from '@material-ui/icons/Phone';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import { Link } from 'react-router-dom';
 
 export default function Index() {
     return (
@@ -39,9 +40,9 @@ export default function Index() {
             <div className="contacto">
                 <h4>Contactanos</h4>
                 <ul>
-                    <li><a href="localhost:3000"><PhoneIcon /> 011-2530-0369</a></li>
-                    <li><a href="localhost:3000"><LocationOnIcon /> Calle Falsa 123</a></li>
-                    <li><a href="localhost:3000"><MailOutlineIcon /> sales@musicavern.com</a></li>
+                    <li><Link to='/'><PhoneIcon /> 011-2530-0369</Link></li>
+                    <li><Link to='/'><LocationOnIcon /> Calle Falsa 123</Link></li>
+                    <li><Link to='/'><MailOutlineIcon /> sales@musicavern.com</Link></li>
                 </ul>
             </div>
 
