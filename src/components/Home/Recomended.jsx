@@ -30,7 +30,7 @@ export default function LatestProducts() {
 
     return (
         <div align="center" className="latest">
-            <h2 align="left" className="latest-h2">Recomendaciones</h2>
+            <h2 align="left" className="latest-h2">Recomendados</h2>
             { loading && ( <Spinner /> ) }
             {products.slice(0, 4).map(product => <ProductBox key={product.id} image={product.image} price={product.price} title={product.title} discount={""} newPrice={null} stock={product.stock} id={product.id}/>)}
         </div>
