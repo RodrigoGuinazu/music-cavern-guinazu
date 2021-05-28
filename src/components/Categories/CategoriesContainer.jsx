@@ -9,6 +9,7 @@ export default function CategoriesContainer({ products, name }) {
 
     useEffect(() => {
 
+        let isMounted = true; 
         const db = getFirestore();
         const categoriesCollection = db.collection('categories'); // TODAS LAS CATEGORIAS
 
@@ -21,8 +22,11 @@ export default function CategoriesContainer({ products, name }) {
                 }
             })
             let categoria = categorias.find(categoria => categoria.id === name)
-            setCategoria(categoria)
+            if (isMounted){
+                setCategoria(categoria)
+            }
         })
+        return () => { isMounted = false };
     }, [name])
 
     return (

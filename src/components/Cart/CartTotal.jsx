@@ -1,13 +1,50 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { CartContext } from '../../context/CartContext'
+import { getFirestore } from '../../firebase';
+import firebase from 'firebase/app'
+import swal from 'sweetalert';
+import Spinner from '../../Spinner'
+import { UserContext } from '../../context/UserContext'
+import { Link } from 'react-router-dom'
 
-export default function CartTotal() {
+export default function CartTotal({ totalAPagar }) {
 
-    const {clearCart, cart} = useContext(CartContext)
+    const {user} = useContext(UserContext)
 
-    let totalAPagar = 0;
+    const {cart, clearCart} = useContext(CartContext)
 
-    cart.map(product => totalAPagar = totalAPagar + (product.item.price * product.quantity))
+    const [loading, setLoading] = useState(false)
+
+    const purchased = cart.map(product => ({
+        id: product.item.id,
+        title: product.item.title,
+        price: product.item.price,
+        quantity: product.quantity
+    }))
+
+    const newOrder = {
+        user: user ? user.email : "",
+        items: purchased,
+        date: firebase.firestore.Timestamp.fromDate(new Date()),
+        price: totalAPagar
+    }
+    
+    function CreateOrder() {
+        const db = getFirestore();
+        const orders = db.collection("orders");
+
+        setLoading(true)
+    
+        orders.add(newOrder)
+        .then(({ id }) => {
+            swal(`Gracias por tu compra!`, `Tu id de compra: ${id}`, "success");
+            clearCart()
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+        .finally(() => setLoading(false))
+    }
 
     return (
         <div className="cart-total">
@@ -28,7 +65,12 @@ export default function CartTotal() {
                 <h3>Subtotal: $ {totalAPagar}</h3>
                 <h3>Envio: $ 0</h3>
                 <h3>Total: $ {totalAPagar}</h3>
-                <button className="purchase">Finalizar Compra</button>
+                {!user ? (
+                    <Link to={`/login`}><button className="purchase">Iniciar Sesion</button></Link>
+                ) : (
+                    <button onClick={ () => CreateOrder()} className="purchase">{ loading ? ( <Spinner /> ) : ("Finalizar Compra") }</button>
+                )}
+                
                 <button onClick={ () => clearCart()} className="clean-cart">Limpiar Carrito</button>
             </article>
         </div>

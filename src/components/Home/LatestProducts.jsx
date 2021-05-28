@@ -12,9 +12,10 @@ export default function LatestProducts() {
         setLoading(true)
         const db = getFirestore();
         const itemCollection = db.collection('products'); // TODOS LOS PRODUCTOS
+        const latest = itemCollection.where('discount', '==', null);
 
         // TODOS LOS PRODUCTOS
-        itemCollection.get()
+        latest.get()
         .then((querySnapshot) => {
             const array = querySnapshot.docs.map(doc => { // EL DOC CONTIENE EL id, metadata, y mas cosas, lo que nos importa es el ID y la data
                 return{

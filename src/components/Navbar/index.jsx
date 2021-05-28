@@ -2,14 +2,21 @@ import React, { useState } from 'react'
 import './navbar.css';
 import SearchIcon from '@material-ui/icons/Search';
 import MenuIcon from '@material-ui/icons/Menu';
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Sidebar from '../Sidebar/index';
 import CartIcon from './CartIcon'
 
-export default function Index() {
+const Index = ({ history }) => {
 
     const [sidebar, setSidebar] = useState(false)
+
     const showSidebar = () => setSidebar(!sidebar)
+
+    history.listen((location, action) => {
+        setSidebar(false)
+    });
+
+    //const [search, setSearch] = useState(null); onChange={e => setSearch(e.target.value)} (input search); Toma lo que se escriba en el search
 
     return (
         <nav className={sidebar ? 'nav-menu' : 'nav-no-menu'}>
@@ -21,8 +28,8 @@ export default function Index() {
                     </div>
                     <div className="search">
                         <form className="search" action="" method="GET">
-                            <input type="text" name="search" className="searchTerm" placeholder="Busca tu Producto" />
-                            <button type="submit" className="searchButton">
+                            <input type="text" name="searchTerm" className="searchTerm" placeholder="Busca tu Producto" />
+                            <button type="submit" className="searchButton" disabled>
                                 <SearchIcon />
                             </button>
                         </form>
@@ -35,3 +42,5 @@ export default function Index() {
         </nav>
     )
 }
+
+export default withRouter(Index);

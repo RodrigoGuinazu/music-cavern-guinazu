@@ -1,3 +1,7 @@
+*::-webkit-scrollbar {
+    display: none;
+}
+
 .nav-no-menu .sidebar{
     margin-left: -100%;
     transition: 850ms;
@@ -6,7 +10,6 @@
 .no-brands-ul {
     margin-left: -100%;
     position: fixed;
-    transition: 850ms;
 }
 
 .brands-ul {
@@ -17,7 +20,6 @@
 .no-categories-ul {
     margin-left: -100%;
     position: fixed;
-    transition: 850ms;
 }
 
 .categories-ul {
@@ -28,8 +30,9 @@
 .sidebar {
     margin-left: 0%;
     transition: 350ms;
-    height: 100vh;
+    height: 88vh;
     position: fixed;
+    overflow-y: scroll;
     z-index: 1;
     width: 18%;
     background-color: black;

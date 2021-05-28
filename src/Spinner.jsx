@@ -16,8 +16,8 @@ export default function CircularIndeterminate() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <CircularProgress color="black" />
+    <div style={{margin: '5px'}} className={classes.root}>
+      <CircularProgress color="inherit" />
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+// DECIDI NO USAR LA COLECCION DE CATEGORIAS DE FIREBASE PARA EVITAR LOS DOS SEGUNDOS DE CARGA Y QUE MUESTRE DE INMEDIATO LAS CATEGORIAS
+
 export default function Categories({ clase }) {
     return (
         <>

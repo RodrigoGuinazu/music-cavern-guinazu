@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+// DECIDI NO USAR LA COLECCION DE MARCAS DE FIREBASE PARA EVITAR LOS DOS SEGUNDOS DE CARGA Y PARA QUE MUESTRE DE INMEDIATO LAS MARCAS
+
 export default function Brands({ clase }) {
     return (
         <ul className={clase}>

@@ -9,6 +9,7 @@ export default function BrandsContainer({products, name}) {
 
     useEffect(() => {
 
+        let isMounted = true; 
         const db = getFirestore();
         const brandsCollection = db.collection('brands'); // TODAS LAS MARCAS
 
@@ -21,8 +22,11 @@ export default function BrandsContainer({products, name}) {
                 }
             })
             let marca = marcas.find(marca => marca.id === name)
-            setMarca(marca)
+            if (isMounted){
+                setMarca(marca)
+            }
         })
+        return () => { isMounted = false };
     }, [name])
 
     return (

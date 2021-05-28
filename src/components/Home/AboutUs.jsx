@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function AboutUs() {
     return (
-        <div align="left" className="about-us-div">
+        <div align="left" id="about-us" className="about-us-div">
             <h2>Instrumentos Musicales y Audio Profesional</h2>
             <h3>La casa de música más completa de Argentina</h3>
             <div className="line"></div>
