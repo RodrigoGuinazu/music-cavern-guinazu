@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { CartContext } from '../../context/CartContext'
 import { getFirestore } from '../../firebase';
+import '../../firebase'
 import firebase from 'firebase/app'
 import swal from 'sweetalert';
 import Spinner from '../../Spinner'
@@ -29,11 +30,18 @@ export default function CartTotal({ totalAPagar }) {
         price: totalAPagar
     }
     
-    function CreateOrder() {
+    async function CreateOrder() {
         const db = getFirestore();
         const orders = db.collection("orders");
+        //const itemsToUpdate = db.collection('products').where(firebase.firestore.FieldPath.documentId(), 'in', cart.map(product => product.item.id));
+
+        //const query = await itemsToUpdate.get();
 
         setLoading(true)
+
+        //query.docs.forEach((docSnapshot, i) => {
+        //    db.batch().update(docSnapshot.ref, { stock: docSnapshot.data().stock - cart[i].quantity});
+        //})
     
         orders.add(newOrder)
         .then(({ id }) => {
@@ -43,7 +51,9 @@ export default function CartTotal({ totalAPagar }) {
         .catch((error) => {
             console.log(error);
         })
-        .finally(() => setLoading(false))
+        .finally(() => {
+            setLoading(false)
+        })
     }
 
     return (
@@ -71,7 +81,7 @@ export default function CartTotal({ totalAPagar }) {
                     <button onClick={ () => CreateOrder()} className="purchase">{ loading ? ( <Spinner /> ) : ("Finalizar Compra") }</button>
                 )}
                 
-                <button onClick={ () => clearCart()} className="clean-cart">Limpiar Carrito</button>
+                <button onClick={ () => clearCart()} className="clean-cart">Vaciar Carrito</button>
             </article>
         </div>
     )
