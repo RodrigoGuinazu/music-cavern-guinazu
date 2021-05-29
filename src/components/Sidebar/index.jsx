@@ -50,15 +50,21 @@ const Index = ({ history }) => {
             <div style={{display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}>Marcas {!brands ? (<ArrowRightIcon style={{fontSize: '30px'}} />) : <ArrowLeftIcon style={{fontSize: '30px'}} />} </div>
             </li>
                 <Brands clase={brands ? 'brands-ul' : 'no-brands-ul'}/>
-            <li style={{cursor: 'pointer'}}>
-                <div style={{display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}>Luthiers</div>
-            </li>
+            <Link style={{color: 'white', textDecoration: 'none'}} to="/luthiers">
+                <li style={{cursor: 'pointer'}}>
+                    <div style={{display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}>Luthiers</div>
+                </li>
+            </Link>
+            <Link style={{color: 'white', textDecoration: 'none'}} to='/about'>
             <li onClick={() => window.location = "#about-us"} style={{cursor: 'pointer'}}>
                 <div style={{display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}>Sobre Nosotros</div>
             </li>
-            <li style={{cursor: 'pointer'}}>
-                <div style={{display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}>FAQs</div>
-            </li>
+            </Link>
+            <Link style={{color: 'white', textDecoration: 'none'}} to="/faqs">
+                <li style={{cursor: 'pointer'}}>
+                    <div style={{display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}>FAQs</div>
+                </li>
+            </Link>
         </div>
     )
 }

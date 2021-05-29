@@ -33,7 +33,6 @@ div.home{
 
 .latest {
     width: 100%;
-    
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -150,7 +149,7 @@ div.home{
 @media(max-width: 767px){
 
     .about-us-div {
-        width: 100%;
+        width: 80%;
         margin-bottom: 45px;
     }
 
@@ -175,7 +174,7 @@ div.home{
 @media(min-width: 768px) and (max-width: 1440px){
 
     .about-us-div {
-        width: 75%;
+        width: 80%;
         margin-bottom: 45px;
     }
 

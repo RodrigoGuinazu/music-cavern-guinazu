@@ -9,6 +9,10 @@ import Brands from './components/Brands';
 import Login from './components/Login';
 import Register from './components/Register';
 import Profile from './components/Profile';
+import AboutUs from './components/AboutUs';
+import Faqs from './components/FAQs'
+import Luthiers from './components/Luthiers'
+import Error from './components/404';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { CartProvider } from './context/CartContext'
 import { UserProvider } from './context/UserContext'
@@ -44,9 +48,21 @@ function App() {
               <Route path='/product/:id'>
                 <Detail />
               </Route> 
+              <Route path='/about'>
+                <AboutUs />
+              </Route>
+              <Route path='/faqs'>
+                <Faqs />
+              </Route>
+              <Route path='/luthiers'>
+                <Luthiers />
+              </Route>
               <Route exact path='/'>
                 <Home />
-              </Route>  
+              </Route>
+              <Route exact path='*'>
+                <Error />
+              </Route>   
             </Switch>
             <Footer />
           </BrowserRouter>

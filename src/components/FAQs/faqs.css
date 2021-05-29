@@ -1,0 +1,15 @@
+.faqs-ul{
+    list-style: none;
+}
+
+.faqs-ul h2 {
+    margin-top: 20px;
+}
+
+.faqs-ul p {
+    font-size: larger;
+}
+
+.hide {
+    display: none;
+}

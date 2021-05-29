@@ -4,7 +4,6 @@ import LatestProducts from './LatestProducts'
 import Carousel from './Carousel'
 import Categories from './Categories'
 import Brands from './Brands'
-import AboutUs from './AboutUs'
 import Offers from './Offers'
 
 export default function Index() {
@@ -18,7 +17,6 @@ export default function Index() {
             <Categories />
             <Brands />
             <Offers />
-            <AboutUs />
             </div>
             
         </div>

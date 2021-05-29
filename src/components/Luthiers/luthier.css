@@ -1,0 +1,27 @@
+.luthier-box {
+    background-color: white;
+    padding: 10px;
+    border: 4px;
+    margin: 20px;
+    border: 1px solid #ededed;
+    width: 18%;
+    border-radius: 14px;
+}
+
+.luthier-box img {
+    border-radius: 14px;
+}
+
+.categories-page{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.brands-page{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

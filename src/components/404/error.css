@@ -1,0 +1,9 @@
+.error{
+    margin-bottom: 5%;
+    width: 100%;
+    max-width: 750px;
+}
+
+#error {
+    margin-top: 50px;
+}
