@@ -23,37 +23,43 @@ export default function CartTotal({ totalAPagar }) {
         quantity: product.quantity
     }))
 
-    const newOrder = {
-        user: user ? user.email : "",
-        items: purchased,
-        date: firebase.firestore.Timestamp.fromDate(new Date()),
-        price: totalAPagar
-    }
     
-    async function CreateOrder() {
+    async function createOrder(){
         const db = getFirestore();
-        const orders = db.collection("orders");
-        //const itemsToUpdate = db.collection('products').where(firebase.firestore.FieldPath.documentId(), 'in', cart.map(product => product.item.id));
-
-        //const query = await itemsToUpdate.get();
-
+        const itemsToUpdate = db.collection('products').where(firebase.firestore.FieldPath.documentId(), 'in', cart.map(i => i.item.id));
+        const query = await itemsToUpdate.get();
+        const batch = db.batch();
         setLoading(true)
+        const outOfStock = [];
+        const orders = db.collection('orders');
 
-        //query.docs.forEach((docSnapshot, i) => {
-        //    db.batch().update(docSnapshot.ref, { stock: docSnapshot.data().stock - cart[i].quantity});
-        //})
-    
-        orders.add(newOrder)
-        .then(({ id }) => {
-            swal(`Gracias por tu compra!`, `Tu id de compra: ${id}`, "success");
-            clearCart()
+        const newOrder = {
+            user: user ? user.email : "",
+            items: purchased,
+            date: firebase.firestore.FieldValue.serverTimestamp(),
+            status: 'Orden En Proceso!',
+            total: totalAPagar
+        }
+
+        query.docs.forEach((docSnapshot, idx) => {
+            if(docSnapshot.data().stock >= cart[idx].quantity){
+                batch.update(docSnapshot.ref, { stock: docSnapshot.data().stock - cart[idx].quantity});
+            } else {
+                outOfStock.push({ ...docSnapshot.data(), id: docSnapshot.id});
+            }
         })
-        .catch((error) => {
-            console.log(error);
-        })
-        .finally(() => {
-            setLoading(false)
-        })
+        
+        if(outOfStock.length === 0){ 
+            await batch.commit();
+            try {
+                const { id } = await orders.add(newOrder);
+                swal(`Gracias por tu compra!`, `Tu id de compra: ${id}`, "success");
+                clearCart()
+                setLoading(false)
+            }catch (err) {
+                console.log(err);
+            }
+        }
     }
 
     return (
@@ -78,7 +84,7 @@ export default function CartTotal({ totalAPagar }) {
                 {!user ? (
                     <Link to={`/login`}><button className="purchase">Iniciar Sesion</button></Link>
                 ) : (
-                    <button onClick={ () => CreateOrder()} className="purchase">{ loading ? ( <Spinner /> ) : ("Finalizar Compra") }</button>
+                    <button onClick={ () => createOrder()} className="purchase">{ loading ? ( <Spinner /> ) : ("Finalizar Compra") }</button>
                 )}
                 
                 <button onClick={ () => clearCart()} className="clean-cart">Vaciar Carrito</button>
