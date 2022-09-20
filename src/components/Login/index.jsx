@@ -34,9 +34,6 @@ const Index = ({ history }) => {
     return (
         <section align="center" className="login">
             <h2 className="login-title">Log In</h2>
-            <div className="login-credential-image">
-                <img src="https://nuk.chultane5000.pw/img/627255.png" alt="avatar-login" />
-            </div>
 
             <form onSubmit={handleSignIn} className="login-credential">
                 <div className="login-credential">
